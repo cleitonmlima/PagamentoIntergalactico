@@ -6,24 +6,20 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateUsersTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name', 255);
+            $table->string('email', 255)->unique();
+            $table->string('identification_document', 14)
+            ->unique()
+            ->comment('CPF/CNPJ document for the user');            
+            $table->enum('type_user', ['L','C'])->comment('Type of user, T = LOJISTAS, C = COMUNS');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('users');
