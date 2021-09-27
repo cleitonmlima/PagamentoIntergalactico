@@ -45,5 +45,5 @@ services:
       - portal
 
 networks:
-  nofaro:
+  portal:
     driver: bridge

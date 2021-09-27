@@ -13,8 +13,8 @@ docker-compose exec app php artisan key:generate
 echo "[####]Roda Migration[####]"
 docker-compose exec app php artisan migrate
 
-echo "[####]Roda Seeders[####]"
-docker-compose exec app php artisan db:seed --class=PetsTypesTableSeeder
+#echo "[####]Roda Seeders[####]"
+#docker-compose exec app php artisan db:seed --class=PetsTypesTableSeeder
 
 echo "[####]Pronto! Aplicação preparada para rodar[####]"
 
