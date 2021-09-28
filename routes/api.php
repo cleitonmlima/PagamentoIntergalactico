@@ -17,13 +17,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-//pets
-Route::get('/pets', 'PetsController@index');
-Route::get('/pets/{name}', 'PetsController@show');
-Route::post('/pets/', 'PetsController@store');
-Route::delete('pets/{id}', 'PetsController@delete');
+//user
+Route::get('/user/{name}', 'UserController@show');
+Route::post('/user/', 'UserController@store');
 
-//attendance
-Route::get('/attendance', 'AttendanceController@index');
-Route::post('/attendance/', 'AttendanceController@store');
-Route::get('/attendance/formatted', 'AttendanceController@getformatted');
+//transaction
+Route::post('/transaction/', 'AttendanceController@store');

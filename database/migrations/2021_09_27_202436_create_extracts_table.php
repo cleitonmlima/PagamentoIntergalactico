@@ -15,8 +15,8 @@ class CreateExtractsTable extends Migration
     {
         Schema::create('extracts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedInteger('wallet_id');
-            $table->unsignedInteger('transaction_id');
+            $table->unsignedBigInteger('wallet_id');
+            $table->unsignedBigInteger('transaction_id');
             $table->enum('type_transaction', ['D', 'C'])->comment('D = Debit, C = Credit');
             $table->foreign('wallet_id')->references('id')->on('wallets');
             $table->foreign('transaction_id')->references('id')->on('transactions');
